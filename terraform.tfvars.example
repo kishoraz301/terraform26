@@ -1,0 +1,19 @@
+# Copy this file to terraform.tfvars and fill in the values before running Terraform.
+# Do NOT commit terraform.tfvars to version control as it may contain sensitive data.
+
+resource_group_name   = "rg-terraform-demo"
+location              = "East US"
+environment           = "dev"
+vnet_address_space    = ["10.0.0.0/16"]
+subnet_address_prefix = "10.0.1.0/24"
+vm_size               = "Standard_B1s"
+admin_username        = "azureuser"
+admin_password        = "CHANGE_ME_<Min12Chars+Upper+Lower+Digit+Special>"
+# ssh_public_key      = "ssh-rsa AAAA... user@host"  # Recommended: set this to disable password auth
+# allowed_ssh_cidr    = "203.0.113.10/32"             # Recommended: restrict to your IP
+os_disk_size_gb       = 30
+
+tags = {
+  project = "terraform-demo"
+  owner   = "your-name"
+}
