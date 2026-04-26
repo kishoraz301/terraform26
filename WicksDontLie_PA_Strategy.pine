@@ -1,0 +1,34 @@
+//@version=6
+indicator("Wicks Don't Lie Price Action Strategy", overlay=true)
+
+// Dynamic Support and Resistance Calculation
+var float support = na
+var float resistance = na
+
+if na(support) or close < support
+    support := low
+if na(resistance) or close > resistance
+    resistance := high
+
+// Candle Body Rules
+candleBody = math.abs(close - open)
+bodyThreshold = candleBody > 0.01 // Example threshold (adjustable)
+
+// Wick Fill Confirmation
+wickFill = (high - close) <= (math.abs(wicklength := math.abs(high - low)) * 0.5)
+
+// Range Validation
+rangeValidation = (high - low) <= 2 * syminfo.mintick
+
+// Main Logic
+longCondition = close > open and candleBody and wickFill and rangeValidation
+shortCondition = close < open and candleBody and wickFill and rangeValidation
+
+if (longCondition)
+    label.new(bar_index, high, "Long", color=color.green, style=label.style_label_down)
+if (shortCondition)
+    label.new(bar_index, low, "Short", color=color.red, style=label.style_label_up)
+
+// Plotting Support and Resistance
+plot(support, color=color.blue, style=plot.style_stepline, linewidth=2, title="Support Zone")
+plot(resistance, color=color.red, style=plot.style_stepline, linewidth=2, title="Resistance Zone")
