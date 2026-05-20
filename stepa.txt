@@ -1,0 +1,23 @@
+# WE WAF policies (created in first apply — definitely exist)
+terraform import azurerm_web_application_firewall_policy.we_waf_policy "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/si-dmz-appgw-we-01-rg/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/WAF-Main"
+
+terraform import azurerm_web_application_firewall_policy.we_lms_policy "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/si-dmz-appgw-we-01-rg/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/WAF-LMS"
+
+terraform import azurerm_web_application_firewall_policy.we_hsbcpapi_policy "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/si-dmz-appgw-we-01-rg/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/WAF-HSBCPAPI"
+
+# DNS VNet links (pre-existing)
+terraform import azurerm_private_dns_zone_virtual_network_link.we_kv_dns_link "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/MIP-SI-WE-RG/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net/virtualNetworkLinks/we-cidmz-kv-dns-link"
+
+terraform import azurerm_private_dns_zone_virtual_network_link.ne_kv_dns_link "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/MIP-SI-WE-RG/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net/virtualNetworkLinks/ne-cidmz-kv-dns-link"
+
+# KV Access policies (pre-existing)
+terraform import azurerm_key_vault_access_policy.we_appgw_kv "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/SI-Core-WE-01-rg/providers/Microsoft.KeyVault/vaults/SI-Core-Vault-WE-01/objectId/d78e0954-bd98-497e-86ef-1511e1f27df0"
+
+terraform import azurerm_key_vault_access_policy.ne_appgw_kv "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/SI-Core-NE-51-rg/providers/Microsoft.KeyVault/vaults/SI-Core-Vault-NE-51/objectId/5d05488c-5ded-4ef3-bfb6-52f2f07d2202"
+
+# NE WAF policies (may exist from second apply — try each, ignore "not found" errors)
+terraform import azurerm_web_application_firewall_policy.ne_waf_policy "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/si-dmz-appgw-ne-01-rg/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/WAF-Main"
+
+terraform import azurerm_web_application_firewall_policy.ne_lms_policy "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/si-dmz-appgw-ne-01-rg/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/WAF-LMS"
+
+terraform import azurerm_web_application_firewall_policy.ne_hsbcpapi_policy "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/si-dmz-appgw-ne-01-rg/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/WAF-HSBCPAPI"
