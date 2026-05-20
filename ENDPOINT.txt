@@ -1,7 +1,0 @@
-terraform import azurerm_web_application_firewall_policy.we_waf_policy "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/si-dmz-appgw-we-01-rg/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/SI-DMZ-WAFPLCY-01"
-
-terraform import azurerm_web_application_firewall_policy.ne_waf_policy "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/si-dmz-appgw-ne-01-rg/providers/Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/SI-DMZ-WAFPLCY-51"
-
-terraform import azurerm_private_endpoint.we_kv_pe "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/si-dmz-appgw-we-01-rg/providers/Microsoft.Network/privateEndpoints/SI-Core-Vault-WE-01-pe"
-
-terraform import azurerm_private_endpoint.ne_kv_pe "/subscriptions/9bde6346-5250-49f9-a010-3ac07609cb70/resourceGroups/si-dmz-appgw-ne-01-rg/providers/Microsoft.Network/privateEndpoints/SI-Core-Vault-NE-51-pe"
