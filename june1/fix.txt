@@ -1,0 +1,16 @@
+SUB="9bde6346-5250-49f9-a010-3ac07609cb70"
+RG="MIP-SI-NE-RG"
+PREM="SI-CEDMZ-FWPLCY-NE"
+STD="SI-CIDMZ-FWPLCY-STD-NE"
+
+terraform import azurerm_firewall_policy_rule_collection_group.prem_ne_rcg_dnat "/subscriptions/$SUB/resourceGroups/$RG/providers/Microsoft.Network/firewallPolicies/$PREM/ruleCollectionGroups/RCG-DNAT-NE"
+
+terraform import azurerm_firewall_policy_rule_collection_group.prem_ne_rcg_app "/subscriptions/$SUB/resourceGroups/$RG/providers/Microsoft.Network/firewallPolicies/$PREM/ruleCollectionGroups/RCG-CE-DMZ-OUT-PROD-APP-NE"
+
+terraform import azurerm_firewall_policy_rule_collection_group.prem_ne_rcg_app_nonprod "/subscriptions/$SUB/resourceGroups/$RG/providers/Microsoft.Network/firewallPolicies/$PREM/ruleCollectionGroups/RCG-CE-DMZ-OUT-APP-NE-NONPROD"
+
+terraform import azurerm_firewall_policy_rule_collection_group.prem_ne_rcg_ftp "/subscriptions/$SUB/resourceGroups/$RG/providers/Microsoft.Network/firewallPolicies/$PREM/ruleCollectionGroups/RCG-CE-DMZ-OUT-FTP-NE"
+
+terraform import azurerm_firewall_policy_rule_collection_group.prem_ne_rcg_internet "/subscriptions/$SUB/resourceGroups/$RG/providers/Microsoft.Network/firewallPolicies/$PREM/ruleCollectionGroups/RCG-CI-DMZ-OUT-INTERNET"
+
+terraform import azurerm_firewall_policy_rule_collection_group.std_ne_rcg_out_net "/subscriptions/$SUB/resourceGroups/$RG/providers/Microsoft.Network/firewallPolicies/$STD/ruleCollectionGroups/RCG-CI-NE-OUT-PRD-ALLOW"
